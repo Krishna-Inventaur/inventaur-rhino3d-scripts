@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "target": "Rhino 9 Windows x64 net8.0",
+  "configuration": "Release",
+  "sdk": "8.0.427",
+  "artifacts": {
+    "RhinoAI.rhp": {
+      "bytes": 1003520,
+      "sha256": "efc4bf2e8066a9a192a370e06fe28c828e28181bae3c52d63ea8f6ac581b963e"
+    },
+    "Acp.dll": {
+      "bytes": 193536,
+      "sha256": "eac0a78c142cc0d36f41eb27cf041b4eeb455302410726be2bdc62c1c183bc9c"
+    },
+    "RhinoAI.deps.json": {
+      "bytes": 16686,
+      "sha256": "5b803e851d18b5944ae0acc5157a7ce4110dae1e3a5b0182f7d2a231ee3d6257"
+    },
+    "RhinoAI.runtimeconfig.json": {
+      "bytes": 375,
+      "sha256": "2fa0b19e9ba0d01bf6fc57c18cbd4b03f808c229ac05316e321b62824c1aea9c"
+    },
+    "rhino-mcp-router.exe": {
+      "bytes": 6013606,
+      "sha256": "6a84e0bef6a39448382438d9d4009406690b112fdebd6b365db6924f2ab74c03"
+    }
+  },
+  "warnings": [
+    {
+      "code": "CS1998",
+      "source": "rhino/router/RhinoManager.ai.cs",
+      "note": "Pre-existing async-without-await warning. Excluded from warnings-as-errors for the isolated build only; source was not modified."
+    }
+  ],
+  "errors": 0,
+  "installed_plugin_modified": false,
+  "promotion_note": "Built plugin was not copied over the installed RHP while a user Rhino process was open. The community installer refuses to operate while any Rhino.exe process is running."
+}

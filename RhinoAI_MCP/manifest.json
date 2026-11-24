@@ -1,0 +1,143 @@
+{
+  "name": "RhinoAI MCP",
+  "version": "1.1.0",
+  "licence": "MIT subtree; includes McNeel RhinoAI MIT notices",
+  "target": "Rhino 9 Windows x64 net8.0",
+  "client_neutral": true,
+  "zip_archive_maintained": false,
+  "plugin_installed_in_author_session": false,
+  "files": [
+    {
+      "path": "Build/RhinoAI/net8.0/Acp.dll",
+      "bytes": 193536,
+      "sha256": "eac0a78c142cc0d36f41eb27cf041b4eeb455302410726be2bdc62c1c183bc9c"
+    },
+    {
+      "path": "Build/RhinoAI/net8.0/RhinoAI.deps.json",
+      "bytes": 16686,
+      "sha256": "5b803e851d18b5944ae0acc5157a7ce4110dae1e3a5b0182f7d2a231ee3d6257"
+    },
+    {
+      "path": "Build/RhinoAI/net8.0/RhinoAI.rhp",
+      "bytes": 1003520,
+      "sha256": "efc4bf2e8066a9a192a370e06fe28c828e28181bae3c52d63ea8f6ac581b963e"
+    },
+    {
+      "path": "Build/RhinoAI/net8.0/RhinoAI.runtimeconfig.json",
+      "bytes": 375,
+      "sha256": "2fa0b19e9ba0d01bf6fc57c18cbd4b03f808c229ac05316e321b62824c1aea9c"
+    },
+    {
+      "path": "Build/RhinoAI/router/win-x64/rhino-mcp-router.exe",
+      "bytes": 6013606,
+      "sha256": "6a84e0bef6a39448382438d9d4009406690b112fdebd6b365db6924f2ab74c03"
+    },
+    {
+      "path": "LICENSE.md",
+      "bytes": 807,
+      "sha256": "5f234e5ba97ce856bbafd9800ac6562249e611cff932c4da57ef08ef166c4566"
+    },
+    {
+      "path": "Licenses/Inventaur_Repair_MIT_LICENSE.txt",
+      "bytes": 824,
+      "sha256": "9d546fb359f449593c446d8758e6fde71eb1403d9d7d349760514027adb8c001"
+    },
+    {
+      "path": "Licenses/McNeel_RhinoAI_MIT_LICENSE.txt",
+      "bytes": 1104,
+      "sha256": "81a8211b83171eb1f5e8f6d8021959b3adcdbcac555de17ec449ca1d8fd2059d"
+    },
+    {
+      "path": "Licenses/THIRD_PARTY_NOTICES.txt",
+      "bytes": 392,
+      "sha256": "e307a970efa39f787d981c5f383e111bccd030d1eed39555a25615a2bfabff0c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5241,
+      "sha256": "c1a8a750f4ee485f2abc6294905a83f94533c2fd656a7543e23357e87b138485"
+    },
+    {
+      "path": "Reports/BUILD_REPORT.json",
+      "bytes": 1368,
+      "sha256": "76b847b03838d86edd05a867a3199ca6119ac79fef139e41a80c10594a1bb0a7"
+    },
+    {
+      "path": "Reports/LIVE_MCP_E2E.json",
+      "bytes": 986,
+      "sha256": "bfda7646ad9d7b1d2ee591619889370087d8dfe0c22b32ea0b45daf7a2716633"
+    },
+    {
+      "path": "Reports/REPAIR_E2E_REPORT.json",
+      "bytes": 3592,
+      "sha256": "7b7a0fe1e29caa5003077077b2ce058a621197c5f336151a45207be12a9d178c"
+    },
+    {
+      "path": "Reports/TEST_RESULTS.md",
+      "bytes": 2047,
+      "sha256": "f1d40da5735b81c66b9444027998f7dead23b514abb843fd6b42332ddae40908"
+    },
+    {
+      "path": "Scripts/APPLY_RHINOAI_SOURCE_PATCH.ps1",
+      "bytes": 3440,
+      "sha256": "79172cfe58d2f4e68fd762aad6ba7422bf9a958f2230c29adbf0e9856986f21f"
+    },
+    {
+      "path": "Scripts/INSTALL.ps1",
+      "bytes": 5259,
+      "sha256": "8bd2afe14cbe12a7408b827f36abcc9d69ceccb2a39a10d91c33e0aed1fa710b"
+    },
+    {
+      "path": "Scripts/ROLLBACK.ps1",
+      "bytes": 2423,
+      "sha256": "7463d14b04b575af144b07d7341f92ab2d0327464013c08a6e340f4256dba49a"
+    },
+    {
+      "path": "Scripts/VERIFY.ps1",
+      "bytes": 1034,
+      "sha256": "327326b85ac13d68a72e4305493509ec4b8c9c907b65a572c91408e708aca4e7"
+    },
+    {
+      "path": "Source/RhinoAI/MCPStartCommand.cs",
+      "bytes": 2739,
+      "sha256": "a984b21db917a4de301c4bfc0e3544656811381702953b43670b034dbc800cd5"
+    },
+    {
+      "path": "Source/RhinoAI/MCPStartCommand.cs.before.cs",
+      "bytes": 1769,
+      "sha256": "4e81ffedac3acfe7cf7181c0f80184b4b1f8498f52632aa8efe4302d63af99cb"
+    },
+    {
+      "path": "Source/RhinoAI/MCPStartCommand.cs.patch",
+      "bytes": 1999,
+      "sha256": "bc6b956db7c9468bea109d3e15ed5bfe549ed7efe562cd8dd53e4c0914e89d38"
+    },
+    {
+      "path": "Source/RhinoAI/REPAIR_CHANGELOG.md",
+      "bytes": 3934,
+      "sha256": "091b42b0a405e1a1af97b2f75712009f3382f35cc8967f1a7ec93e017418df31"
+    },
+    {
+      "path": "Source/RhinoAI/UPSTREAM_SOURCE_NOTE.md",
+      "bytes": 792,
+      "sha256": "59ddf226fcd1453ce4a433e8b6d304dac96f91b7e8587e99a43683b6934a56c5"
+    },
+    {
+      "path": "Tests/README.md",
+      "bytes": 291,
+      "sha256": "612a4854bb30aaba3cd28d34ac54adbdbe8af9bbfa2421c471a1a1b5ef4b9e94"
+    },
+    {
+      "path": "Tests/reference/test_mcp_autostart_contract.py",
+      "bytes": 8201,
+      "sha256": "c9937e4c0cb12b621fd0dcfa9fa38506b437919a4dc4d613d4c30fcc6782d9d8"
+    },
+    {
+      "path": "Tests/test_project_contract.py",
+      "bytes": 2339,
+      "sha256": "981ca529006f89ed5f90c20e144a58978fba560ee734ccf5567d2732ed7db7a3"
+    }
+  ],
+  "file_count": 26,
+  "total_bytes": 7278304
+}

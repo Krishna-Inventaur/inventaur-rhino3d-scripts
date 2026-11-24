@@ -1,7 +1,7 @@
 {
   "name": "Inventaur Rhino3D Scripts",
   "version": "1.3.4",
-  "license": "Proprietary Commercial License",
+  "license": "Mixed: repository root proprietary commercial licence; RhinoAI_MCP subtree MIT",
   "license_file": "LICENSE.md",
   "third_party_policy": "No McNeel PAT data, Rhino SDK binaries or prebuilt 3DM template redistributed.",
   "requires": [
@@ -18,16 +18,16 @@
       "sha256": "0d722430569393ba36d75d25dd622de964551509f6e105e68fd2baee2f6ee79c"
     },
     "README.md": {
-      "size_bytes": 24105,
-      "sha256": "7b81c160fe4d4c46208ef9f553364e08f47564d3db72143ae51dce959ce040b2"
+      "size_bytes": 3289,
+      "sha256": "c201992ef451f653457c1f115f671b4a7fec07c8f6562b0a06d0ecbcc1ff5258"
     },
     "RhinoStandards/AutoLayer/Inventaur_RhinoAutoLayer.py": {
-      "size_bytes": 3658,
-      "sha256": "cc4f4fc7a08f68b697e7d04af1477342343c00e50089470d85c75efbf0a75b90"
+      "size_bytes": 5433,
+      "sha256": "29c0cff96e0d3da5c89b7a4cd962197fe84770f1dfe7967b2a8bbe5833eb08a1"
     },
     "RhinoStandards/AutoLayer/README.md": {
-      "size_bytes": 2893,
-      "sha256": "756032f422a3f78b18665a6c901df07ffc297a6445b552d598565c29e36ee1a3"
+      "size_bytes": 1639,
+      "sha256": "1fa0197ccb2516e3e1147ed371e5186f2383fd6efbab21347e8b4da2d74f7ca9"
     },
     "RhinoStandards/HatchLibrary/Inventaur_ExportRhinoDefaultHatches.py": {
       "size_bytes": 2148,
@@ -54,8 +54,8 @@
       "sha256": "d51f1e6e3db6b0af1724609c6b1cf33f57f7fe158efd5d6a92af3c82f9facf30"
     },
     "RhinoStandards/README.md": {
-      "size_bytes": 4053,
-      "sha256": "f74245028b1a8cd794bec500d87ec57d3a29421a7fe4478b186a9d54e6d591f6"
+      "size_bytes": 2582,
+      "sha256": "135d322b63ab96855a31416687ecaea8a9492e3a89381d27fe3df0c96f21dd03"
     },
     "RhinoStandards/Template/README.md": {
       "size_bytes": 1788,
@@ -66,8 +66,128 @@
       "sha256": "12909665845a23a346e55538fce055a25d21e4e296f0eed00bffdb36e606e99a"
     },
     "VERIFICATION.md": {
-      "size_bytes": 2233,
-      "sha256": "5dbaf56e5c01ae434a5a9919a72fc52f5b36837fdb1a4e0138bc78eab0aca0bd"
+      "size_bytes": 2438,
+      "sha256": "972c25288f532c3b0d52f0c3c83d112a99fd54fee5487c7453cdf36d4fd63e03"
+    },
+    "RhinoStandards/INDEX.md": {
+      "size_bytes": 3289,
+      "sha256": "c201992ef451f653457c1f115f671b4a7fec07c8f6562b0a06d0ecbcc1ff5258"
+    },
+    "RhinoStandards/CHANGELOG.md": {
+      "size_bytes": 1346,
+      "sha256": "46a5490833961df1b9bd427680459a59f44beab5c400132aba361dc3c1a06615"
+    },
+    "RhinoAI_MCP/Build/RhinoAI/net8.0/Acp.dll": {
+      "size_bytes": 193536,
+      "sha256": "eac0a78c142cc0d36f41eb27cf041b4eeb455302410726be2bdc62c1c183bc9c"
+    },
+    "RhinoAI_MCP/Build/RhinoAI/net8.0/RhinoAI.deps.json": {
+      "size_bytes": 16686,
+      "sha256": "5b803e851d18b5944ae0acc5157a7ce4110dae1e3a5b0182f7d2a231ee3d6257"
+    },
+    "RhinoAI_MCP/Build/RhinoAI/net8.0/RhinoAI.rhp": {
+      "size_bytes": 1003520,
+      "sha256": "efc4bf2e8066a9a192a370e06fe28c828e28181bae3c52d63ea8f6ac581b963e"
+    },
+    "RhinoAI_MCP/Build/RhinoAI/net8.0/RhinoAI.runtimeconfig.json": {
+      "size_bytes": 375,
+      "sha256": "2fa0b19e9ba0d01bf6fc57c18cbd4b03f808c229ac05316e321b62824c1aea9c"
+    },
+    "RhinoAI_MCP/Build/RhinoAI/router/win-x64/rhino-mcp-router.exe": {
+      "size_bytes": 6013606,
+      "sha256": "6a84e0bef6a39448382438d9d4009406690b112fdebd6b365db6924f2ab74c03"
+    },
+    "RhinoAI_MCP/LICENSE.md": {
+      "size_bytes": 807,
+      "sha256": "5f234e5ba97ce856bbafd9800ac6562249e611cff932c4da57ef08ef166c4566"
+    },
+    "RhinoAI_MCP/Licenses/Inventaur_Repair_MIT_LICENSE.txt": {
+      "size_bytes": 824,
+      "sha256": "9d546fb359f449593c446d8758e6fde71eb1403d9d7d349760514027adb8c001"
+    },
+    "RhinoAI_MCP/Licenses/McNeel_RhinoAI_MIT_LICENSE.txt": {
+      "size_bytes": 1104,
+      "sha256": "81a8211b83171eb1f5e8f6d8021959b3adcdbcac555de17ec449ca1d8fd2059d"
+    },
+    "RhinoAI_MCP/Licenses/THIRD_PARTY_NOTICES.txt": {
+      "size_bytes": 392,
+      "sha256": "e307a970efa39f787d981c5f383e111bccd030d1eed39555a25615a2bfabff0c"
+    },
+    "RhinoAI_MCP/manifest.json": {
+      "size_bytes": 4641,
+      "sha256": "c3537b8bb98bbd61f2a38083c231a9fbaf307e056b580c043eff130ecbbf8999"
+    },
+    "RhinoAI_MCP/manifest.sha256": {
+      "size_bytes": 80,
+      "sha256": "4cc14c7bec2d2aba896975c51c8a35c47e15d328bfadc7f9737f2f204be4ef7e"
+    },
+    "RhinoAI_MCP/README.md": {
+      "size_bytes": 5241,
+      "sha256": "c1a8a750f4ee485f2abc6294905a83f94533c2fd656a7543e23357e87b138485"
+    },
+    "RhinoAI_MCP/Reports/BUILD_REPORT.json": {
+      "size_bytes": 1368,
+      "sha256": "76b847b03838d86edd05a867a3199ca6119ac79fef139e41a80c10594a1bb0a7"
+    },
+    "RhinoAI_MCP/Reports/LIVE_MCP_E2E.json": {
+      "size_bytes": 986,
+      "sha256": "bfda7646ad9d7b1d2ee591619889370087d8dfe0c22b32ea0b45daf7a2716633"
+    },
+    "RhinoAI_MCP/Reports/REPAIR_E2E_REPORT.json": {
+      "size_bytes": 3592,
+      "sha256": "7b7a0fe1e29caa5003077077b2ce058a621197c5f336151a45207be12a9d178c"
+    },
+    "RhinoAI_MCP/Reports/TEST_RESULTS.md": {
+      "size_bytes": 2047,
+      "sha256": "f1d40da5735b81c66b9444027998f7dead23b514abb843fd6b42332ddae40908"
+    },
+    "RhinoAI_MCP/Scripts/APPLY_RHINOAI_SOURCE_PATCH.ps1": {
+      "size_bytes": 3440,
+      "sha256": "79172cfe58d2f4e68fd762aad6ba7422bf9a958f2230c29adbf0e9856986f21f"
+    },
+    "RhinoAI_MCP/Scripts/INSTALL.ps1": {
+      "size_bytes": 5259,
+      "sha256": "8bd2afe14cbe12a7408b827f36abcc9d69ceccb2a39a10d91c33e0aed1fa710b"
+    },
+    "RhinoAI_MCP/Scripts/ROLLBACK.ps1": {
+      "size_bytes": 2423,
+      "sha256": "7463d14b04b575af144b07d7341f92ab2d0327464013c08a6e340f4256dba49a"
+    },
+    "RhinoAI_MCP/Scripts/VERIFY.ps1": {
+      "size_bytes": 1034,
+      "sha256": "327326b85ac13d68a72e4305493509ec4b8c9c907b65a572c91408e708aca4e7"
+    },
+    "RhinoAI_MCP/Source/RhinoAI/MCPStartCommand.cs": {
+      "size_bytes": 2739,
+      "sha256": "a984b21db917a4de301c4bfc0e3544656811381702953b43670b034dbc800cd5"
+    },
+    "RhinoAI_MCP/Source/RhinoAI/MCPStartCommand.cs.before.cs": {
+      "size_bytes": 1769,
+      "sha256": "4e81ffedac3acfe7cf7181c0f80184b4b1f8498f52632aa8efe4302d63af99cb"
+    },
+    "RhinoAI_MCP/Source/RhinoAI/MCPStartCommand.cs.patch": {
+      "size_bytes": 1999,
+      "sha256": "bc6b956db7c9468bea109d3e15ed5bfe549ed7efe562cd8dd53e4c0914e89d38"
+    },
+    "RhinoAI_MCP/Source/RhinoAI/REPAIR_CHANGELOG.md": {
+      "size_bytes": 3934,
+      "sha256": "091b42b0a405e1a1af97b2f75712009f3382f35cc8967f1a7ec93e017418df31"
+    },
+    "RhinoAI_MCP/Source/RhinoAI/UPSTREAM_SOURCE_NOTE.md": {
+      "size_bytes": 792,
+      "sha256": "59ddf226fcd1453ce4a433e8b6d304dac96f91b7e8587e99a43683b6934a56c5"
+    },
+    "RhinoAI_MCP/Tests/README.md": {
+      "size_bytes": 291,
+      "sha256": "612a4854bb30aaba3cd28d34ac54adbdbe8af9bbfa2421c471a1a1b5ef4b9e94"
+    },
+    "RhinoAI_MCP/Tests/reference/test_mcp_autostart_contract.py": {
+      "size_bytes": 8201,
+      "sha256": "c9937e4c0cb12b621fd0dcfa9fa38506b437919a4dc4d613d4c30fcc6782d9d8"
+    },
+    "RhinoAI_MCP/Tests/test_project_contract.py": {
+      "size_bytes": 2339,
+      "sha256": "981ca529006f89ed5f90c20e144a58978fba560ee734ccf5567d2732ed7db7a3"
     }
   },
   "mcp_autostart": {
@@ -75,19 +195,33 @@
       8,
       9
     ],
-    "command": "_MCPStart {port} ",
+    "command": {
+      "rhino9": "_MCPStart _Enter",
+      "rhino8": "_MCPStart 10508"
+    },
     "port_by_rhino_major": {
       "8": 10508,
-      "9": 10500
+      "9": "RhinoAI dynamically selects an available port"
     },
-    "rhino8_standards_installer": "skipped; current standards installer is qualified for Rhino 9",
-    "startup_verification": "local TCP port checked before and after command; existing listener is not restarted",
-    "cold_start_verified": false,
+    "rhino8_standards_installer": "skipped; current standards installer is Rhino 9-targeted",
+    "startup_verification": "MCPStatus-reported port; no AutoLayer TCP or JSON-RPC discovery scan",
     "rhino8_startup_test": "PASS",
     "rhino8_jsonrpc_initialize": "PASS",
     "rhino9_jsonrpc_initialize": "PASS",
     "rhino9_tools_list_count": 44,
-    "rhino9_cold_start_after_latest_patch": "PENDING",
-    "trailing_space": "submits port value as Enter"
+    "rhino9_cold_start_after_latest_patch": "PASS disposable process; OS-selected fallback port 53318; 44 tools",
+    "client_setup": "MCPConnect built-in client configuration dialog",
+    "trailing_space": "not used for Rhino 9; _Enter submits the default MCPStart path"
+  },
+  "rhinoai_mcp": {
+    "path": "RhinoAI_MCP/",
+    "version": "1.1.0",
+    "client_neutral": true,
+    "licence": "MIT",
+    "plugin": "RhinoAI_MCP/Build/RhinoAI/net8.0/RhinoAI.rhp",
+    "router": "RhinoAI_MCP/Build/RhinoAI/router/win-x64/rhino-mcp-router.exe",
+    "rhp_sha256": "efc4bf2e8066a9a192a370e06fe28c828e28181bae3c52d63ea8f6ac581b963e",
+    "router_sha256": "6a84e0bef6a39448382438d9d4009406690b112fdebd6b365db6924f2ab74c03",
+    "deployment_status": "built_and_staged; installation/reload remains pending"
   }
 }

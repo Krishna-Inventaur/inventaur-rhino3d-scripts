@@ -1,57 +1,30 @@
-# Rhino AutoLayer Startup Entrypoint
+# Rhino AutoLayer startup entrypoint
 
-Script: Inventaur_RhinoAutoLayer.py
-Package version: 1.3.4
+This file is the Rhino startup bootstrap for the Inventaur standards runtime and RhinoAI MCP.
 
-This startup entrypoint has two version-specific paths:
+## Version-specific startup
 
-- **Rhino 9:** loads the Inventaur Rhino Standards installer, then starts the McNeel RhinoAI MCP server on 127.0.0.1:10500.
-- **Rhino 8:** skips the Rhino 9-targeted drafting-standards installer and starts the RhinoAI MCP server on 127.0.0.1:10508.
+- Rhino 9: load the standards installer, then invoke _MCPStart _Enter. RhinoAI chooses an available listener and registers it against the active Rhino document.
+- Rhino 8: skip the Rhino 9-targeted standards installer and retain the separate MCP-only _MCPStart 10508 path.
 
-The explicit port argument is important. A bare _MCPStart opens the interactive MCPStart Port <10500>: prompt and leaves Rhino waiting for input. The startup script instead runs _MCPStart 10500 in Rhino 9 or _MCPStart 10508 in Rhino 8, with a final space that submits the port as Enter in Rhino command scripting. It checks whether the selected local port already has a listener, avoiding an unnecessary server restart.
+## Startup safety
 
-## Rhino 9 standards path
+AutoLayer does not scan ports, open sockets or send JSON-RPC tools/list probes during Rhino startup. RhinoAI owns port allocation, collision handling and document-scoped listener registration. This avoids a second allocator and prevents a non-responsive listener from blocking Rhino's UI thread.
 
-The Rhino 9 path loads Inventaur_RhinoStandards_Install.py, applies layers/styles/hatches, validates the local metric template, and registers annotation/hatch routing.
+The actual port is determined by RhinoAI. Run MCPStatus in Rhino and use the reported endpoint when configuring or verifying an AI client. Do not assume that the Rhino 9 instance always uses 10500.
 
-## Rhino 8 MCP-only path
+## Runtime paths
 
-The current drafting-standards installer is qualified for Rhino 9. Rhino 8 therefore uses this entrypoint for MCP autostart only; the installer is deliberately skipped there so an unverified Rhino 8 standards run cannot interfere with MCP startup.
+The entrypoint resolves the user's Documents directory and loads the Inventaur standards installer from:
 
-## Install
+    Documents/Inventaur/Rhino Standards/Inventaur_RhinoStandards_Install.py
 
-Copy this entrypoint to:
+The bootstrap log is written below:
 
-%USERPROFILE%\Documents\Inventaur\Rhino Standards\Inventaur_RhinoAutoLayer.py
+    LOCALAPPDATA/Inventaur/RhinoStandards/logs/
 
-Configure the version-specific Rhino profile to run:
+## Client connection
 
-~~~text
-_-RunPythonScript "%USERPROFILE%\Documents\Inventaur\Rhino Standards\Inventaur_RhinoAutoLayer.py"
-~~~
+RhinoAI is client-neutral. Run MCPConnect in Rhino to open the built-in client configuration dialog. Use its Install tab for detected MCP clients or its Prompt/mcp.json tabs for manual setup. The same RhinoAI server is used by all clients.
 
-The Rhino 9 Default profile already has this command. The Rhino 8 Default profile is configured by the matching setup update.
-
-## Ports
-
-| Rhino version | MCP port |
-|---|---:|
-| Rhino 8 | 10508 |
-| Rhino 9 | 10500 |
-
-Separate ports allow both Rhino versions to run at the same time without competing for the same TCP listener.
-
-**Rhino 8 verification (2026-11-15):** a fresh Default-profile Rhino 8 process ran this entrypoint automatically. The script logged MCPSTART_RUNSCRIPT_RETURN=True for _MCPStart 10508, confirmed the TCP listener, and returned HTTP 200 to an MCP initialize request (server rhino-mcp 0.4.0.0). The empty test process was closed afterwards. Connect an external MCP client to the port for the Rhino instance being used.
-
-## Logs
-
-%LOCALAPPDATA%\Inventaur\RhinoStandards\logs\Inventaur_RhinoBootstrap.log
-
-Relevant entries:
-
-- STANDARDS_BOOTSTRAP_OK — Rhino 9 standards installer completed.
-- STANDARDS_BOOTSTRAP_SKIPPED — Rhino 8 MCP-only path.
-- MCPSTART_RUNSCRIPT_RETURN — explicit MCPStart command result.
-- MCP_ENDPOINT_TCP_REACHABLE — local TCP listener verified.
-- MCP_ALREADY_REACHABLE — listener already existed; no restart was sent.
-- MCP_ENDPOINT_TCP_NOT_REACHABLE — command returned but no listener was found.
+The RhinoAI source patch, RHP/router build and guarded installer are maintained as editable files in the sibling tools/RhinoAI_MCP/ tree.

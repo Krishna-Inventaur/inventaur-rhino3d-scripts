@@ -1,0 +1,39 @@
+--- a/rhino/plugin/Commands/MCPStartCommand.cs
++++ b/rhino/plugin/Commands/MCPStartCommand.cs
+@@ -32,14 +32,34 @@
+         {
+             if (!RhinoAIHost.StartOnNextAvailablePort(doc, out int selectedPort))
+                 return Result.Failure;
+-            RhinoApp.WriteLine($"[RhinoAI] MCP server currently running on http://localhost:{selectedPort}/ (in-Rhino agents use /agent)");
++
++            // Verify the listener is registered to this exact Rhino document.
++            // A successful command call or an occupied port alone is not proof
++            // that this document owns a live MCP listener.
++            if (!RhinoAIHost.TryGetPortFor(doc, out int registeredPort)
++                || registeredPort != selectedPort)
++            {
++                RhinoApp.WriteLine(
++                    $"[RhinoAI] MCP start postcondition failed for this document; requested {selectedPort}, registered {registeredPort}.");
++                return Result.Failure;
++            }
++
++            RhinoApp.WriteLine($"[RhinoAI] MCP server currently running on http://localhost:{registeredPort}/ (in-Rhino agents use /agent)");
+             return Result.Success;
+         }
+ 
+         int port = go.Number();
+         if (RhinoAIHost.StartOrRestart(doc, port))
+         {
+-            RhinoApp.WriteLine($"[RhinoAI] MCP server currently running on http://localhost:{port}/ (in-Rhino agents use /agent)");
++            if (!RhinoAIHost.TryGetPortFor(doc, out int registeredPort)
++                || registeredPort != port)
++            {
++                RhinoApp.WriteLine(
++                    $"[RhinoAI] MCP start postcondition failed for this document; requested {port}, registered {registeredPort}.");
++                return Result.Failure;
++            }
++
++            RhinoApp.WriteLine($"[RhinoAI] MCP server currently running on http://localhost:{registeredPort}/ (in-Rhino agents use /agent)");
+             return Result.Success;
+         }
+ 

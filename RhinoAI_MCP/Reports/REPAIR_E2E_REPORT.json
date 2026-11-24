@@ -1,0 +1,99 @@
+{
+  "package": "RhinoAI MCP Reliability Repair",
+  "upstream": {
+    "project": "McNeel RhinoAI",
+    "repository": "https://github.com/mcneel/RhinoAI",
+    "branch": "rhino-9.x",
+    "license": "MIT"
+  },
+  "target": {
+    "rhino": "9.1.26314.9001",
+    "os": "Windows 11 x64",
+    "runtime": "net8.0"
+  },
+  "changes": [
+    "Removed synchronous 10500-10600 TCP scanning and synchronous JSON-RPC tools/list probes from Inventaur AutoLayer startup.",
+    "Delegated Rhino 9 listener allocation to RhinoAI MCPStart using _MCPStart _Enter.",
+    "Added current-RhinoDoc listener ownership postcondition checks to MCPStartCommand for suggested and explicit ports.",
+    "Kept Rhino 8's separate MCP-only startup path on its explicit 10508 contract."
+  ],
+  "fresh_process_test": {
+    "status": "PASS",
+    "startup_total_ms": 1029.4,
+    "mcpstart_phase_ms": 303.5,
+    "endpoint": {
+      "host": "127.0.0.1",
+      "port": 53318,
+      "selection": "OS-assigned ephemeral fallback",
+      "tools_list_http": 200,
+      "jsonrpc": "2.0",
+      "tool_count": 44
+    },
+    "cleanup": {
+      "process_closed_gracefully": true,
+      "endpoint_closed": true,
+      "port_closed": true
+    }
+  },
+  "protected_session": {
+    "mcp_port": 10500,
+    "preserved": true
+  },
+  "tests": {
+    "rhinoai_autostart_and_rhinostandards_targeted_regressions": 34,
+    "project_contract": "see Reports/TEST_RESULTS.md",
+    "powershell_scripts_parse": "PASS",
+    "source_patch_sandbox_apply": "PASS_EXACT_HASH_AND_ATOMIC_BACKUP",
+    "source_patch_idempotence": "PASS",
+    "installer_open_rhino_guard": "PASS_REFUSED_WHILE_RHINO_OPEN",
+    "mcp_tools_list": "PASS_44_TOOLS",
+    "generic_stdio_router": "PASS_44_TOOLS_AND_LIST_SLOTS"
+  },
+  "build": {
+    "status": "PASS",
+    "artifacts": {
+      "RhinoAI.rhp": {
+        "bytes": 1003520,
+        "sha256": "efc4bf2e8066a9a192a370e06fe28c828e28181bae3c52d63ea8f6ac581b963e"
+      },
+      "Acp.dll": {
+        "bytes": 193536,
+        "sha256": "eac0a78c142cc0d36f41eb27cf041b4eeb455302410726be2bdc62c1c183bc9c"
+      },
+      "RhinoAI.deps.json": {
+        "bytes": 16686,
+        "sha256": "5b803e851d18b5944ae0acc5157a7ce4110dae1e3a5b0182f7d2a231ee3d6257"
+      },
+      "RhinoAI.runtimeconfig.json": {
+        "bytes": 375,
+        "sha256": "2fa0b19e9ba0d01bf6fc57c18cbd4b03f808c229ac05316e321b62824c1aea9c"
+      },
+      "rhino-mcp-router.exe": {
+        "bytes": 6013606,
+        "sha256": "6a84e0bef6a39448382438d9d4009406690b112fdebd6b365db6924f2ab74c03"
+      }
+    },
+    "warnings": [
+      {
+        "code": "CS1998",
+        "source": "rhino/router/RhinoManager.ai.cs",
+        "note": "Pre-existing async-without-await warning. Excluded from warnings-as-errors for the isolated build only; source was not modified."
+      }
+    ],
+    "errors": 0
+  },
+  "limitations": [
+    "The second instance selected ephemeral fallback 53318; preferred next port 10501 was not observed.",
+    "The replacement RHP was built but not promoted into the installed plugin while the user's Rhino process remained open.",
+    "Installer activation and post-install MCPStatus verification remain pending until all Rhino processes are closed and the guarded installer is run.",
+    "This package targets Rhino 9 Windows x64; Rhino 8 binary compatibility is not claimed."
+  ],
+  "client_interoperability": {
+    "architecture": "client-neutral standard MCP",
+    "rhino_connect_command": "MCPConnect",
+    "native_client_configurator": "PASS",
+    "stdio_router": "PASS",
+    "user_started_rhino_adopted": true,
+    "user_started_rhino_closed": false
+  }
+}

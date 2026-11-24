@@ -1,0 +1,30 @@
+{
+  "status": "PASS_FRESH_PROCESS_MCP_E2E",
+  "date": "2026-11-24",
+  "rhino_version": "9.1.26314.9001",
+  "disposable_rhino_process": true,
+  "startup_total_ms": 1029.4,
+  "mcpstart_ms": 303.5,
+  "autolayer_startup_scan_removed": true,
+  "mcp_endpoint": {
+    "address_scope": "127.0.0.1",
+    "port": 53318,
+    "port_selection": "OS-assigned ephemeral fallback",
+    "tools_list_http": 200,
+    "jsonrpc": "2.0",
+    "tool_count": 44
+  },
+  "cleanup": {
+    "disposable_process_closed": true,
+    "disposable_endpoint_closed": true
+  },
+  "protected_user_session": {
+    "preserved": true,
+    "existing_endpoint_port": 10500
+  },
+  "limitations": [
+    "The fresh instance used ephemeral fallback port 53318; the preferred next port 10501 was not observed in this run.",
+    "No claim is made that the installed plugin was promoted; the active user Rhino process was kept open.",
+    "Physical output-device calibration is outside this package."
+  ]
+}

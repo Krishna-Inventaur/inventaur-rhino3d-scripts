@@ -1,27 +1,30 @@
 # Verification Summary
 
-The source scripts derive from the locally maintained Rhino Standards 1.3.2 package.
+## RhinoAI MCP and AutoLayer
 
-Verified locally against Rhino 9:
-- Installer headless regression: 44 layers, 14 annotation/text styles, 59 native hatch definitions and zero geometry objects.
-- Existing metric template readback: 44 layers, 14 styles, 59 hatch definitions.
-- The PAT exporter implementation previously generated and read back 59 unique native hatch definitions.
-- Source scripts compile under the Rhino Python environment.
+Verified on Rhino 9.1.26314.9001, Windows x64, net8.0:
 
-Public package 1.3.4 changes:
-- PAT input is optional; native Rhino defaults are used when no local PAT file is present.
-- The installer creates the metric template locally instead of downloading a prebuilt 3DM.
-- A local PAT exporter is included.
-- No locally generated PAT, 3DM, personal workstation logs or machine-specific verification reports are committed.
+- AutoLayer startup no longer scans 10500–10600 or sends synchronous JSON-RPC probes during Rhino startup.
+- Rhino 9 delegates listener allocation to RhinoAI through _MCPStart _Enter.
+- RhinoAI MCPStart verifies that the selected listener belongs to the active RhinoDoc.
+- A fresh disposable Rhino 9 process completed the revised AutoLayer bootstrap in approximately 1.03 seconds; MCPStart phase approximately 303 ms.
+- The fresh process exposed a JSON-RPC tools/list endpoint on OS-assigned port 53318; HTTP 200 and 44 tools were returned. This run does not claim that preferred port 10501 was selected.
+- The disposable Rhino process and endpoint closed cleanly.
+- The existing user Rhino process and its port 10500 endpoint were preserved.
+- The standard stdio router initialized, returned 44 tools and adopted the already-running Rhino through list_slots; it exited without closing that Rhino session.
+- The source patch applies only when the upstream file matches the exact expected preimage SHA-256. The backup, postimage and idempotent second run were verified.
+- The guarded installer refuses to run while any Rhino process is open, backs up the existing plugin and validates the staged RHP hash.
+- The exact-endpoint verification script requires the port reported by MCPStatus and does not scan a port range.
 
-Rhino 8 fresh Default-profile startup and MCP initialization passed. Rhino 9's currently running MCP endpoint passed initialize and tools/list; a fresh Rhino 9 process restart after the latest bootstrap patch remains pending.
+## Tests and build
 
-## Rhino 8 / Rhino 9 MCP autostart
+- RhinoAI MCP autostart and RhinoStandards targeted regression set: 34 passed.
+- Client-neutral project contract tests: 5 passed.
+- Four PowerShell scripts parse successfully: source patch, install, rollback and exact-endpoint verify.
+- RhinoAI Release/net8.0 plugin and Windows x64 router build: 0 errors. One pre-existing unrelated CS1998 warning was allowed for the isolated build; unrelated upstream source was not changed.
 
-The AutoLayer startup script now passes the port argument and a final command-script separator so Rhino receives the port value and Enter without an interactive pause.
+## Promotion boundary
 
-- **Rhino 8:** fresh Default-profile process started the shared entrypoint automatically. The log recorded MCPSTART_RUNSCRIPT_RETURN=True for _MCPStart 10508, then MCP_ENDPOINT_TCP_REACHABLE. An MCP initialize request returned HTTP 200; server identified itself as rhino-mcp version 0.4.0.0. The temporary empty test process was closed after the test.
-- **Rhino 9:** the live endpoint at 127.0.0.1:10500 returned HTTP 200 to MCP initialize and tools/list (44 tools). This was an already-running Rhino 9 session, not a fresh cold start after the latest bootstrap patch.
-- **Ports:** Rhino 8 uses 10508; Rhino 9 uses 10500. The entrypoint skips the Rhino 9 standards installer in Rhino 8 and uses an MCP-only path there.
+The new RhinoAI RHP and router are built and staged as individual files in RhinoAI_MCP/Build. The replacement RHP has not been installed over the active user Rhino runtime because that Rhino session was deliberately preserved. Installation and post-reload MCPStatus verification remain pending until all Rhino processes are closed and the guarded installer is run.
 
-**Remaining acceptance:** verify the updated bootstrap on the next normal Rhino 9 cold start. The active Rhino 9 project process was not restarted or closed for this test.
+The RhinoStandards and RhinoAI MCP source folders are the canonical editable files. No ZIP archive is required for review, modification, installation or GitHub updates.

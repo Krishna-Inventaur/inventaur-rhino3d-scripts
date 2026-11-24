@@ -1,0 +1,5 @@
+RhinoAI plugin and stdio router:
+- Based on the MIT-licensed McNeel RhinoAI project: https://github.com/mcneel/RhinoAI
+- McNeel's original MIT licence is included as McNeel_RhinoAI_MIT_LICENSE.txt.
+- Inventaur's MCPStart listener-ownership repair is separately identified in Source/RhinoAI/ and is covered by this folder's LICENSE.md.
+- This is not an official McNeel release or endorsement.
